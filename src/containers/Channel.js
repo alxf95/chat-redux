@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { selectChannel } from '../actions';
+import { selectChannel, fetchMessages } from '../actions';
 
 class Channel extends Component {
   handleClick = () => {
     this.props.selectChannel(this.props.channel);
+    this.props.fetchMessages(this.props.channel);
   };
 
   render() {
@@ -26,7 +27,7 @@ class Channel extends Component {
 }
 
 const mapDispatchToProps = dispatch => {
-  return bindActionCreators({ selectChannel }, dispatch);
+  return bindActionCreators({ selectChannel, fetchMessages }, dispatch);
 };
 
 const mapStateToProps = state => {

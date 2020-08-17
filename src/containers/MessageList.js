@@ -47,6 +47,7 @@ class MessageList extends Component {
   render() {
     return (
       <div>
+        <h2>{this.props.selectedChannel}</h2>
         <div className="ui comments" ref={this.messageListRef}>
           {this.renderMessages()}
         </div>
